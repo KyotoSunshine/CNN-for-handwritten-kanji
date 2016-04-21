@@ -4,6 +4,17 @@
 # and "model_weights.h5", so these files must be present in the
 # same folder as the script before running it.
 
+# Usage example:
+# classify.py 1.png 2.png folder/3.png
+
+# Example output for the above example:
+# 1.png kanji_label_7
+# 2.png kanji_label_14
+# folder/3.png kanji_label_2
+
+# The output may be preceeded by some statements regarding 
+# tensorflow or theano usage status depending on which backend is used.
+
 import sys
 import numpy as np
 from scipy import misc
