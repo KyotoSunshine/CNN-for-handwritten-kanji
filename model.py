@@ -1,8 +1,6 @@
 # This script creates a keras model for classifying handwritten kanji
 # and saves it into files "model_architecture.json" and "model_weights.h5".
-# It takes the dataset "characters_dataset" created by the
-# script "create_dataset.py" as input, and it assumes that the dataset is
-# in the same folder as this script.
+# It takes the dataset created by the script "create_dataset.py" as input.
 
 import numpy as np
 import sys
@@ -16,7 +14,9 @@ from keras.layers.convolutional import Convolution2D, MaxPooling2D
 from keras.layers.normalization import BatchNormalization
 from keras.layers.advanced_activations import PReLU
 from keras.optimizers import Adam
-
+# Just to make sure that it is installed, because it is needed
+# for weights saving.
+import h5py
 
 # Flush the stdout and stderr after each epoch
 class Flush(Callback):
@@ -60,10 +60,10 @@ y_train = np_utils.to_categorical(y_train, NUMBER_OF_CLASSES)
 y_val = np_utils.to_categorical(y_val, NUMBER_OF_CLASSES)
 y_test = np_utils.to_categorical(y_test, NUMBER_OF_CLASSES)
 
-depth = 20
+depth = 30
 model = Sequential()
 model.add(Convolution2D(
-    depth, 3, 3, border_mode='same',
+    depth, 5, 5, border_mode='same',
     W_constraint=maxnorm(MAX_NORM),
     init='he_normal',
     input_shape=(SAMPLE_SHAPE[0], SAMPLE_SHAPE[1], SAMPLE_SHAPE[2])))
@@ -74,7 +74,7 @@ model.add(Dropout(0.1))
 
 depth *= 2
 model.add(Convolution2D(
-    depth, 3, 3, init='he_normal',
+    depth, 5, 5, init='he_normal',
     border_mode='same', W_constraint=maxnorm(MAX_NORM)))
 model.add(BatchNormalization())
 model.add(PReLU())
@@ -83,7 +83,7 @@ model.add(Dropout(0.2))
 
 depth *= 2
 model.add(Convolution2D(
-    depth, 3, 3, init='he_normal',
+    depth, 5, 5, init='he_normal',
     border_mode='same', W_constraint=maxnorm(MAX_NORM)))
 model.add(BatchNormalization())
 model.add(PReLU())
