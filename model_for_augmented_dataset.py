@@ -34,6 +34,15 @@ class Flush(Callback):
         sys.stdout.flush()
         sys.stderr.flush()
 
+# Save model after every epoch
+class SaveModelEveryEpoch(Callback):
+    def on_epoch_end(self, epoch, logs={}):
+        model_in_json = model.to_json()
+        f = open('augmented_model_architecture.json', 'w')
+        f.write(model_in_json)
+        f.close()
+        model.save_weights('augmented_model_weights.h5', overwrite=True)
+
 
 f = open("characters_dataset_elastic", "rb")
 X_train = np.load(f)
@@ -62,8 +71,6 @@ y_train = np.concatenate((y_train, y_train_elastic))
 del X_train_elastic
 del y_train_elastic
 
-
-
 # Some parameters that will not change anymore
 MINIBATCH_SIZE = 100
 NUMBER_OF_CLASSES = len(label_names)
@@ -71,7 +78,7 @@ MAX_NORM = 4  # Max-norm constraint on weights
 SAMPLE_SHAPE = X_train[0].shape
 INITIAL_ADAM_LEARNING_RATE = 0.01
 # If you don't mind long training times, make the below two values larger
-MAXIMUM_NUMBER_OF_EPOCHS = 100
+MAXIMUM_NUMBER_OF_EPOCHS = 10
 EARLY_STOPPING_PATIENCE = 4
 
 # Convert labels to one-hot representation
@@ -143,7 +150,7 @@ for i in range(3):
             EarlyStopping(
                 monitor='val_loss', patience=EARLY_STOPPING_PATIENCE,
                 verbose=2, mode='auto'),
-            Flush()]
+            Flush(), SaveModelEveryEpoch()]
         )
 
     # Divide the learning rate by 10
