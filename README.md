@@ -20,13 +20,25 @@ The above is the performance on validation set when using 40000-10000 training-v
 
 #####If you want to use a pretrained model to classify your own images:
 
+######To use the model which was trained on the non-augmented original dataset (97.4% accuracy):  
 Download the pretrained model weights file from here:  
 https://drive.google.com/open?id=0B-B1607WQeSSRmEtRC1xQW5ZdlU  
 and save it as "model_weights.h5" in some folder.
 
 Download the model architecture file from here:  
-https://drive.google.com/open?id=0B-B1607WQeSSdWR4M3dXNzN5dGs  
+https://drive.google.com/open?id=0B-B1607WQeSSUUVKVkdacmFiOTQ  
 and save it as "model_architecture.json" in the same folder.
+
+
+######To use the model which was trained on the augmented dataset (98.5% accuracy):  
+Download the pretrained model weights file from here:  
+https://drive.google.com/open?id=0B-B1607WQeSSaXdJUzlFRy01TkU  
+and save it as "model_weights.h5" in some folder.
+
+Download the model architecture file from here:  
+https://drive.google.com/open?id=0B-B1607WQeSSaXdJUzlFRy01TkU
+and save it as "model_architecture.json" in the same folder.
+
 
 Place the file "classify.py" from this repository into the same folder as the above two files.  
 
@@ -42,21 +54,33 @@ path_to_image2.png kanji_label_2
 ...
 
 
-#####If you want to train the model:  
+#####If you want to train the model: 
+
 At first, run  
  - python create_dataset.py path_to_folder  
 
 Here path_to_folder is the folder which contains the folders with images.
 This will produce a file named "characters_dataset" which will contain the train/validation/test datasets and labels in numpy arrays.
 
-Now you can train the model on this dataset. Place the "model.py" file in the folder where you have the newly created dataset, and run:  
+######For the case of the model on the non-augmented original dataset:
+
+Place the "model.py" file in the folder where you have the newly created dataset, and run:  
  - python model.py 
 
 This will produce two files: "model_architecture.json" and "model_weights.h5" which contain the model architecture and weights.  
 Then, you can use these files with "classify.py" to make predictions.
 
+######For the case of the model on the augmented dataset:
 
+Place the file "create_augmented_dataset.py" in the same folder as the newly created dataset and run the following command:  
+ - python create_augmented_dataset.py
 
+Now place the "model_for_augmented_dataset.py" file in the folder where you have the newly created augmented dataset, and run: 
+ - python model_for_augmented_dataset.py 
+
+This will produce two files: "augmented_model_architecture.json" and "augmented_model_weights.h5" which contain the model architecture and weights.  
+
+Then, you can use these files with "classify.py" to make predictions, but keep in mind that "classify.py" expects the model weights to be in the file "model_weights.h5" and model architecture to be in the file "model_architecture.json", so you need to rename the files to suit it.
 ----
 
 The folder "logs" contains the training logs of the "model.py" and "model_for_augmented_dataset.py" model. It shows that the validation accuracy (when using the 40000-10000 train-validation split) is about 97.4%. This is the accuracy that was achieved without any kind of data preprocessing or augmentation.
