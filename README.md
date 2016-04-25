@@ -33,11 +33,11 @@ and save it as "model_architecture.json" in the same folder.
 ######To use the model which was trained on the augmented dataset (98.5% accuracy):  
 Download the pretrained model weights file from here:  
 https://drive.google.com/open?id=0B-B1607WQeSSaXdJUzlFRy01TkU  
-and save it as "model_weights.h5" in some folder.
+and rename and save it as "model_weights.h5" in some folder.
 
 Download the model architecture file from here:  
 https://drive.google.com/open?id=0B-B1607WQeSSUUVKVkdacmFiOTQ  
-and save it as "model_architecture.json" in the same folder.
+and rename and save it as "model_architecture.json" in the same folder.
 
 
 Place the file "classify.py" from this repository into the same folder as the above two files.  
