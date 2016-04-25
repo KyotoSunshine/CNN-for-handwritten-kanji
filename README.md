@@ -26,7 +26,7 @@ https://drive.google.com/open?id=0B-B1607WQeSSRmEtRC1xQW5ZdlU
 and save it as "model_weights.h5" in some folder.
 
 Download the model architecture file from here:  
-https://drive.google.com/open?id=0B-B1607WQeSSUUVKVkdacmFiOTQ  
+https://drive.google.com/open?id=0B-B1607WQeSSdWR4M3dXNzN5dGs  
 and save it as "model_architecture.json" in the same folder.
 
 
