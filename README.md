@@ -36,7 +36,7 @@ https://drive.google.com/open?id=0B-B1607WQeSSaXdJUzlFRy01TkU
 and save it as "model_weights.h5" in some folder.
 
 Download the model architecture file from here:  
-https://drive.google.com/open?id=0B-B1607WQeSSaXdJUzlFRy01TkU
+https://drive.google.com/open?id=0B-B1607WQeSSUUVKVkdacmFiOTQ  
 and save it as "model_architecture.json" in the same folder.
 
 
@@ -81,6 +81,7 @@ Now place the "model_for_augmented_dataset.py" file in the folder where you have
 This will produce two files: "augmented_model_architecture.json" and "augmented_model_weights.h5" which contain the model architecture and weights.  
 
 Then, you can use these files with "classify.py" to make predictions, but keep in mind that "classify.py" expects the model weights to be in the file "model_weights.h5" and model architecture to be in the file "model_architecture.json", so you need to rename the files to suit it.
+
 ----
 
 The folder "logs" contains the training logs of the "model.py" and "model_for_augmented_dataset.py" model. It shows that the validation accuracy (when using the 40000-10000 train-validation split) is about 97.4%. This is the accuracy that was achieved without any kind of data preprocessing or augmentation.
