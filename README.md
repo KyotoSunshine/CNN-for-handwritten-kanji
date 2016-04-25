@@ -12,6 +12,12 @@ You can install hdf5 and h5py as follows:
  - sudo pip install h5py  
 
 
+#####Performance
+ - 97.4% with no preprocessing and no data augmentation, achieved by "model.py".
+ - 98.5% with elastic deformations as a dataset augmentation method (increasing dataset ten times), achieved by "model_for_augmented_dataset.py".
+
+The above is the performance on validation set when using 40000-10000 training-validation split.
+
 #####If you want to use a pretrained model to classify your own images:
 
 Download the pretrained model weights file from here:  
@@ -49,10 +55,12 @@ Now you can train the model on this dataset. Place the "model.py" file in the fo
 This will produce two files: "model_architecture.json" and "model_weights.h5" which contain the model architecture and weights.  
 Then, you can use these files with "classify.py" to make predictions.
 
+
+
 ----
 
-The folder "logs" contains the training logs of the "model.py" model. It shows that the validation accuracy (when using the 40000-10000 train-validation split) is about 97.4%. This is the accuracy that was achieved without any kind of data preprocessing or augmentation.
+The folder "logs" contains the training logs of the "model.py" and "model_for_augmented_dataset.py" model. It shows that the validation accuracy (when using the 40000-10000 train-validation split) is about 97.4%. This is the accuracy that was achieved without any kind of data preprocessing or augmentation.
 
-However I also made a larger model "model_for_augmented_dataset.py" that you can train on an augmented dataset if you create it first. The file named "create_augmented_dataset.py" operates on the file "characters_dataset" (which must be created first using the "create_dataset.py" script) and creates another augmented dataset, called "characters_dataset_elastic". It uses elastic distortions (See http://arxiv.org/pdf/1003.0358.pdf for description of the method) to transform the training data and generate very natural looking characters. The newly generated augmented dataset contains ten times as many examples as the original one. It is expected that one can achieve significantly better accuracy using this augmented dataset (see also http://arxiv.org/pdf/1003.0358.pdf).  
+However I also made a larger model "model_for_augmented_dataset.py" that you can train on an augmented dataset if you create it first. The file named "create_augmented_dataset.py" operates on the file "characters_dataset" (which must be created first using the "create_dataset.py" script) and creates another augmented dataset, called "characters_dataset_elastic". It uses elastic distortions (See http://arxiv.org/pdf/1003.0358.pdf for description of the method) to transform the training data and generate very natural looking characters. The newly generated augmented dataset contains ten times as many examples as the original one. Using this dataset with the "model_for_augmented_dataset.py" model, I was able to achieve 98.5% accuracy on the validation set (see also http://arxiv.org/pdf/1003.0358.pdf).  
 
 I had to write the elastic distortion function from scratch, as I was unable to find efficient implementation of elastic transformations in any python library. You can see some of the transformed character images in the folder "Dataset-Augmentation". 
