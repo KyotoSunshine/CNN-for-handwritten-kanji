@@ -87,7 +87,7 @@ Then, you can use these files with "classify.py" to make predictions, but keep i
 
 ----
 
-The folder "logs" contains the training logs of the "model.py", "model30x30.py" and "model_for_augmented_dataset.py" model. 
+The folder "logs" contains the training logs of the "model.py", "model30x30.py" and "model_for_augmented_dataset.py" models. 
 
 The file named "create_augmented_dataset.py" operates on the file "characters_dataset" (which must be created first using the "create_dataset.py" script) and creates an augmented dataset, called "characters_dataset_elastic". It uses elastic distortions (See http://arxiv.org/pdf/1003.0358.pdf for description of the method) to transform the training data and generate very natural looking characters. The newly generated augmented dataset contains ten times as many examples as the original one. Using this dataset with the "model_for_augmented_dataset.py" model, I was able to achieve 98.5% accuracy on the validation set (see also http://arxiv.org/pdf/1003.0358.pdf).  
 
