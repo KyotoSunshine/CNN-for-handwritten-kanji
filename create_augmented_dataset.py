@@ -18,7 +18,7 @@ label_names = np.load(f)
 f.close()
 
 
-# See http://arxiv.org/pdf/1003.0358.pdf for description of the method
+# See http://arxiv.org/pdf/1003.0358.pdf for the description of the method
 def elastic_distortion(image, kernel_dim=31, sigma=6, alpha=47):
 
     # Returns gaussian kernel in two dimensions
