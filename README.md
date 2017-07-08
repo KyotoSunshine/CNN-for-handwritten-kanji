@@ -1,18 +1,18 @@
 # CNN-for-handwritten-kanji
 
-#####Requirements:  
+## Requirements:  
  - Python 2.7
  - Keras 1.0 with Tensorflow (I used version 0.7) or Theano (I used version 0.8)
  - scipy, numpy
  - hdf5 linux package, and h5py package for python
 
-######Note:  
+## Note:  
 You can install hdf5 and h5py as follows:  
  - sudo apt-get install libhdf5-serial-dev  
  - sudo pip install h5py  
 
 
-#####Performance
+## Performance
 Below is the performance on validation set when using 40000-10000 training-validation split.  
 
 - 97.4% with no preprocessing and no data augmentation, achieved by "model.py".
@@ -21,9 +21,9 @@ Below is the performance on validation set when using 40000-10000 training-valid
 
 
 
-#####If you want to use a pretrained model to classify your own images:
+## If you want to use a pretrained model to classify your own images:
 
-######To use the model which was trained on the non-augmented original dataset (97.4% accuracy):  
+### To use the model which was trained on the non-augmented original dataset (97.4% accuracy):  
 Download the pretrained model weights file from here:  
 https://drive.google.com/open?id=0B-B1607WQeSSRmEtRC1xQW5ZdlU  
 and save it as "model_weights.h5" in some folder.
@@ -33,7 +33,7 @@ https://drive.google.com/open?id=0B-B1607WQeSSdWR4M3dXNzN5dGs
 and save it as "model_architecture.json" in the same folder.
 
 
-######To use the model which was trained on the augmented dataset (98.5% accuracy):  
+### To use the model which was trained on the augmented dataset (98.5% accuracy):  
 Download the pretrained model weights file from here:  
 https://drive.google.com/open?id=0B-B1607WQeSSaXdJUzlFRy01TkU  
 and rename and save it as "model_weights.h5" in some folder.
@@ -57,7 +57,7 @@ path_to_image2.png kanji_label_2
 ...
 
 
-#####If you want to train the model: 
+## If you want to train the model: 
 
 At first, run  
  - python create_dataset.py path_to_folder  
@@ -65,7 +65,7 @@ At first, run
 Here path_to_folder is the folder which contains the folders with images.
 This will produce a file named "characters_dataset" which will contain the train/validation/test datasets and labels in numpy arrays.
 
-######For the case of the model on the non-augmented original dataset:
+### For the case of the model on the non-augmented original dataset:
 
 Place the "model.py" file in the folder where you have the newly created dataset, and run:  
  - python model.py 
@@ -73,7 +73,7 @@ Place the "model.py" file in the folder where you have the newly created dataset
 This will produce two files: "model_architecture.json" and "model_weights.h5" which contain the model architecture and weights. 
 Then, you can use these files with "classify.py" to make predictions.
 
-######For the case of the model on the augmented dataset:
+### For the case of the model on the augmented dataset:
 
 Place the file "create_augmented_dataset.py" in the same folder as the newly created dataset and run the following command:  
  - python create_augmented_dataset.py
