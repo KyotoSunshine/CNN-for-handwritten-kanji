@@ -24,23 +24,15 @@ Below is the performance on validation set when using 40000-10000 training-valid
 ## If you want to use a pretrained model to classify your own images:
 
 ### To use the model which was trained on the non-augmented original dataset (97.4% accuracy):  
-Download the pretrained model weights file from here:  
-https://drive.google.com/file/d/0B-B1607WQeSSRmEtRC1xQW5ZdlU/view?usp=sharing&resourcekey=0-4W-Y64R3CCQDB4RBoHvKtQ
-and save it as "model_weights.h5" in some folder.
+Download the pretrained model weights file [from here](https://drive.google.com/file/d/0B-B1607WQeSSRmEtRC1xQW5ZdlU/view?usp=sharing&resourcekey=0-4W-Y64R3CCQDB4RBoHvKtQ), and save it as "model_weights.h5" in some folder.
 
-Download the model architecture file from here:  
-https://drive.google.com/file/d/0B-B1607WQeSSdWR4M3dXNzN5dGs/view?usp=sharing&resourcekey=0-CbFRO7mYd1z8m2VZnDbFPA
-and save it as "model_architecture.json" in the same folder.
+Download the model architecture file [from here](https://drive.google.com/file/d/0B-B1607WQeSSdWR4M3dXNzN5dGs/view?usp=sharing&resourcekey=0-CbFRO7mYd1z8m2VZnDbFPA) and save it as "model_architecture.json" in the same folder.
 
 
 ### To use the model which was trained on the augmented dataset (98.5% accuracy):  
-Download the pretrained model weights file from here:  
-https://drive.google.com/file/d/0B-B1607WQeSSaXdJUzlFRy01TkU/view?usp=sharing&resourcekey=0-omoqGK0LTo9FR_flHDjWug
-and rename and save it as "model_weights.h5" in some folder.
+Download the pretrained model weights file [from here](https://drive.google.com/file/d/0B-B1607WQeSSaXdJUzlFRy01TkU/view?usp=sharing&resourcekey=0-omoqGK0LTo9FR_flHDjWug) and rename and save it as "model_weights.h5" in some folder.
 
-Download the model architecture file from here:  
-https://drive.google.com/file/d/0B-B1607WQeSSUUVKVkdacmFiOTQ/view?usp=sharing&resourcekey=0-sSk-L5cw_9qzClMtWjAEEg
-and rename and save it as "model_architecture.json" in the same folder.
+Download the model architecture file [from here](https://drive.google.com/file/d/0B-B1607WQeSSUUVKVkdacmFiOTQ/view?usp=sharing&resourcekey=0-sSk-L5cw_9qzClMtWjAEEg) and rename and save it as "model_architecture.json" in the same folder.
 
 
 Place the file "classify.py" from this repository into the same folder as the above two files.  
